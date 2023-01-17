@@ -57,7 +57,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/teziovsky/rock-paper-scissors](https://github.com/teziovsky/rock-paper-scissors)
-- Live Site URL: [https://teziovsky.github.io/qr-code-component/](https://teziovsky.github.io/qr-code-component/)
+- Live Site URL: [https://teziovsky.github.io/qr-code-component/](https://teziovsky.github.io/rock-paper-scissors/)
 
 ## My process
 
