@@ -1,12 +1,46 @@
-<script>
+<script lang="ts">
+	import { fade } from 'svelte/transition';
+	import type { Options } from '../types';
 	import Header from '../components/Header.svelte';
 	import Button from '../components/Button.svelte';
+
+	let playerChosenButton: Options | undefined = undefined;
+	let computerChosenButton: Options | undefined = undefined;
+
+	function handleGameButtonClick(event: CustomEvent) {
+		playerChosenButton = event.detail.color;
+	}
+
+	function handleResetButtonClick() {
+		playerChosenButton = undefined;
+	}
 </script>
 
 <Header />
 
-<div class="flex flex-wrap items-center justify-center gap-12">
-	<Button color="paper">
+<div class="relative w-80 h-80">
+	{#if !Boolean(playerChosenButton)}
+		<svg
+			transition:fade={{ duration: 1000 }}
+			class="absolute w-48 h-48 transition-opacity duration-1000 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+			viewBox="0 0 313 278"
+			width="313"
+			height="278"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path class="stroke-[30]" stroke="#000" fill="none" opacity=".2" d="M156.5 262 300 8H13z" />
+		</svg>
+	{/if}
+	<Button
+		on:click={handleGameButtonClick}
+		class={`${
+			playerChosenButton === 'paper'
+				? 'top-6 left-1/4 -translate-x-1/2 duration-700'
+				: 'top-6 left-6'
+		}`}
+		color="paper"
+		chosen={Boolean(playerChosenButton)}
+	>
 		<svg
 			class="relative z-20 w-10 h-10"
 			xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +54,16 @@
 			/>
 		</svg>
 	</Button>
-	<Button color="scissor">
+	<Button
+		on:click={handleGameButtonClick}
+		class={`${
+			playerChosenButton === 'scissors'
+				? 'top-1/2 right-3/4 -translate-y-1/2 translate-x-1/2 duration-700'
+				: 'top-6 right-6'
+		}`}
+		color="scissors"
+		chosen={Boolean(playerChosenButton)}
+	>
 		<svg
 			class="relative z-20 w-10 h-10"
 			xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +77,16 @@
 			/>
 		</svg>
 	</Button>
-	<Button color="rock">
+	<Button
+		on:click={handleGameButtonClick}
+		class={`${
+			playerChosenButton === 'rock'
+				? 'bottom-1/2 left-1/4 translate-y-1/2 -translate-x-1/2 duration-700'
+				: '-translate-x-1/2 bottom-6 left-1/2'
+		}`}
+		color="rock"
+		chosen={Boolean(playerChosenButton)}
+	>
 		<svg
 			class="relative z-20 w-10 h-10"
 			xmlns="http://www.w3.org/2000/svg"
@@ -48,10 +100,37 @@
 			/>
 		</svg>
 	</Button>
+
+	{#if Boolean(playerChosenButton)}
+		<p
+			transition:fade={{ duration: 1000 }}
+			class="absolute text-sm tracking-widest uppercase top-40 left-9"
+		>
+			you picked
+		</p>
+		<p
+			transition:fade={{ duration: 1000 }}
+			class="absolute text-sm tracking-widest uppercase right-4 top-40"
+		>
+			the house picked
+		</p>
+	{/if}
+</div>
+
+<div class="flex min-h-[128px] flex-col gap-4">
+	{#if Boolean(playerChosenButton) && Boolean(computerChosenButton)}
+		<h2 class="text-6xl text-white uppercase">you lose</h2>
+		<button
+			class="px-10 py-3 tracking-widest uppercase rounded-lg text-xl bg-font text-dark enabled:focus:outline-dashed enabled:focus:outline-font enabled:focus:outline-offset-4 enabled:focus:outline-[3px]"
+			on:click={() => handleResetButtonClick()}
+		>
+			play again
+		</button>
+	{/if}
 </div>
 
 <button
-	class="px-6 py-2 uppercase bg-transparent border-2 rounded-lg border-header-outline text-font"
+	class="absolute left-1/2 -translate-x-1/2 bottom-10 px-10 py-1 text-lg tracking-widest uppercase bg-transparent border-[3px] rounded-lg border-header-outline text-font enabled:focus:outline-dashed enabled:focus:outline-font enabled:focus:outline-offset-4 enabled:focus:outline-[3px]"
 >
 	rules
 </button>
