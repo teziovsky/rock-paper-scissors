@@ -22,6 +22,7 @@ module.exports = {
 				grey: 'hsl(226, 15%, 60%)',
 				dark: 'hsl(229, 25%, 31%)',
 				score: 'hsl(229, 64%, 46%)',
+				'dark-slate-gray': 'hsl(220, 45%, 19%)',
 				'header-outline': 'hsl(217, 16%, 45%)'
 			},
 			boxShadow: {
