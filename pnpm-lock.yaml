@@ -1,12 +1,14 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@sveltejs/adapter-auto': ^1.0.0
-  '@sveltejs/adapter-static': ^1.0.4
-  '@sveltejs/kit': ^1.0.0
+  '@sveltejs/adapter-auto': ^1.0.2
+  '@sveltejs/adapter-static': ^1.0.5
+  '@sveltejs/kit': ^1.1.4
+  '@types/canvas-confetti': ^1.6.0
   '@typescript-eslint/eslint-plugin': ^5.45.0
   '@typescript-eslint/parser': ^5.45.0
   autoprefixer: ^10.4.13
+  canvas-confetti: ^1.6.0
   eslint: ^8.28.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-svelte3: ^4.0.0
@@ -20,10 +22,14 @@ specifiers:
   typescript: ^4.9.3
   vite: ^4.0.0
 
+dependencies:
+  canvas-confetti: 1.6.0
+
 devDependencies:
-  '@sveltejs/adapter-auto': 1.0.1_@sveltejs+kit@1.1.1
-  '@sveltejs/adapter-static': 1.0.4_@sveltejs+kit@1.1.1
-  '@sveltejs/kit': 1.1.1_svelte@3.55.1+vite@4.0.4
+  '@sveltejs/adapter-auto': 1.0.2_@sveltejs+kit@1.1.4
+  '@sveltejs/adapter-static': 1.0.5_@sveltejs+kit@1.1.4
+  '@sveltejs/kit': 1.1.4_svelte@3.55.1+vite@4.0.4
+  '@types/canvas-confetti': 1.6.0
   '@typescript-eslint/eslint-plugin': 5.48.2_caon6io6stgpr7lz2rtbhekxqy
   '@typescript-eslint/parser': 5.48.2_7uibuqfxkfaozanbtbziikiqje
   autoprefixer: 10.4.13_postcss@8.4.21
@@ -318,25 +324,25 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
-  /@sveltejs/adapter-auto/1.0.1_@sveltejs+kit@1.1.1:
-    resolution: {integrity: sha512-IGek24xN1wJb+gz0hyGSxbIvM7q2K+BXquyycteCWbH9MPosjw8+LuIB2HIH20thE/647UEQBNqCM9R73lAUXA==}
+  /@sveltejs/adapter-auto/1.0.2_@sveltejs+kit@1.1.4:
+    resolution: {integrity: sha512-UXpEO/gutERZnD+Z5Vi4J/ifD3WSRuCI7xwtLJTcKNQvJ6t5Xsj1X3Mw2F8Vv/XTUuxf7xPLYUgThU331r0Y9w==}
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@sveltejs/kit': 1.1.1_svelte@3.55.1+vite@4.0.4
+      '@sveltejs/kit': 1.1.4_svelte@3.55.1+vite@4.0.4
       import-meta-resolve: 2.2.1
     dev: true
 
-  /@sveltejs/adapter-static/1.0.4_@sveltejs+kit@1.1.1:
-    resolution: {integrity: sha512-L6kGg19MBHW3kv3GWAPl9tJo3ohNM+dcj9Yq1U1XVu0J0MKrusyCWQ62XOfxFgS6T8Fq0KYJ5NSSAPGppvX4xA==}
+  /@sveltejs/adapter-static/1.0.5_@sveltejs+kit@1.1.4:
+    resolution: {integrity: sha512-W5jbgvy9sbYEHs27NQOSFEun+zQwdcL4kpk5qc2kSHl8cKsP5wfXuWDTDRmD1Co40aFcesi5Az5ZzdnPI8KCVg==}
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@sveltejs/kit': 1.1.1_svelte@3.55.1+vite@4.0.4
+      '@sveltejs/kit': 1.1.4_svelte@3.55.1+vite@4.0.4
     dev: true
 
-  /@sveltejs/kit/1.1.1_svelte@3.55.1+vite@4.0.4:
-    resolution: {integrity: sha512-5hZef6yTqiLm8fLMFD78udJI3pG9ptSndg3NNmDqxv5fS9KFABkASQwnWB25Pf1HkPNqvL+x4Tl8kyW1N8thKQ==}
+  /@sveltejs/kit/1.1.4_svelte@3.55.1+vite@4.0.4:
+    resolution: {integrity: sha512-FHt8j8PgwhgeA41WTJfD8yQdOmzRY1v6ORtyXjzbzIZ+106LTclRpywnFoKxACEilAQHdGLAivVf9bRHkW1LLQ==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
     requiresBuild: true
@@ -380,6 +386,10 @@ packages:
       vitefu: 0.2.4_vite@4.0.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@types/canvas-confetti/1.6.0:
+    resolution: {integrity: sha512-Yq6rIccwcco0TLD5SMUrIM7Fk7Fe/C0jmNRxJJCLtAF6gebDkPuUjK5EHedxecm69Pi/aA+It39Ux4OHmFhjRw==}
     dev: true
 
   /@types/cookie/0.5.1:
@@ -686,6 +696,10 @@ packages:
   /caniuse-lite/1.0.30001445:
     resolution: {integrity: sha512-8sdQIdMztYmzfTMO6KfLny878Ln9c2M0fc7EH60IjlP4Dc4PiCy7K2Vl3ITmWgOyPgVQKa5x+UP/KqFsxj4mBg==}
     dev: true
+
+  /canvas-confetti/1.6.0:
+    resolution: {integrity: sha512-ej+w/m8Jzpv9Z7W7uJZer14Ke8P2ogsjg4ZMGIuq4iqUOqY2Jq8BNW42iGmNfRwREaaEfFIczLuZZiEVSYNHAA==}
+    dev: false
 
   /chalk/4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
