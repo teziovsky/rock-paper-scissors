@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import type { Options } from '../types';
+	import type { Options } from '$types';
 
 	const dispatch = createEventDispatcher();
 
