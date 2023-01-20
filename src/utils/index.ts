@@ -1,5 +1,5 @@
 import confetti from 'canvas-confetti';
-import type { Options } from '../types';
+import type { Options } from '$types';
 
 export function randomizeButton() {
 	const buttons: Options[] = ['rock', 'paper', 'scissors'];

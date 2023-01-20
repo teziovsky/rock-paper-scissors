@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-	import Button from '../components/Button.svelte';
-	import Header from '../components/Header.svelte';
-	import type { Options } from '../types';
-	import { fireConfetti, getWinner, randomizeButton } from '../utils';
+	import Button from '$components/Button.svelte';
+	import Header from '$components/Header.svelte';
+	import type { Options } from '$types';
+	import { fireConfetti, getWinner, randomizeButton } from '$utils';
 
 	let score = 0;
 	let result: 'player' | 'computer' | 'draw' | undefined = undefined;

@@ -9,7 +9,7 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
-		"types": ["svelte", "vite/client", "node", "canvas-confetti"]
+		"types": ["svelte", "vite/client", "canvas-confetti"]
 	}
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	//
