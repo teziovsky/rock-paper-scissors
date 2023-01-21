@@ -6,10 +6,10 @@
 	import { fireConfetti, getWinner, randomizeButton } from '$utils';
 
 	let score = 0;
-	let result: 'player' | 'computer' | 'draw' | undefined = undefined;
-	let roundStarted: boolean = false;
-	let playerChosenButton: Options | undefined = undefined;
-	let computerChosenButton: Options | undefined = undefined;
+	let result: 'player' | 'computer' | 'draw' | undefined = 'player';
+	let roundStarted: boolean = true;
+	let playerChosenButton: Options | undefined = 'rock';
+	let computerChosenButton: Options | undefined = 'scissors';
 
 	function handleGameButtonClick(event: CustomEvent) {
 		roundStarted = true;
@@ -20,7 +20,6 @@
 			result = getWinner(playerChosenButton, computerChosenButton);
 			if (result === 'player') {
 				score++;
-
 				fireConfetti();
 			} else if (result === 'computer') {
 				score--;
@@ -38,12 +37,12 @@
 
 <Header {score} />
 
-<div class="relative w-80 h-80">
+<div class="relative w-80 sm:w-96 h-80 sm:h-96">
 	<!-- Lines behind buttons -->
 	{#if !Boolean(playerChosenButton)}
 		<svg
 			transition:fade={{ duration: 400 }}
-			class="absolute w-48 h-48 transition-opacity duration-1000 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+			class="absolute w-48 sm:w-60 h-48 sm:h-60 transition-opacity duration-1000 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
 			viewBox="0 0 313 278"
 			width="313"
 			height="278"
@@ -107,7 +106,7 @@
 		<div
 			in:fade={{ duration: 500, delay: 250 }}
 			out:fade={{ duration: 0, delay: 0 }}
-			class="absolute -translate-x-1/2 rounded-full bg-dark-slate-gray top-[38px] left-3/4 w-[84px] h-[84px]"
+			class="absolute -translate-x-1/2 rounded-full bg-dark-slate-gray top-[38px] sm:top-[42px] left-3/4 w-[84px] sm:w-[108px] sm:h-[108px] h-[84px]"
 		/>
 	{/if}
 
@@ -116,14 +115,14 @@
 		<p
 			in:fade={{ duration: 250, delay: 1000 }}
 			out:fade={{ duration: 100 }}
-			class="absolute text-sm tracking-widest uppercase -translate-x-1/2 whitespace-nowrap top-40 left-1/4"
+			class="absolute text-sm tracking-widest uppercase -translate-x-1/2 whitespace-nowrap sm:text-xl top-40 sm:top-48 left-1/4"
 		>
 			you picked
 		</p>
 		<p
 			in:fade={{ duration: 250, delay: 1000 }}
 			out:fade={{ duration: 100 }}
-			class="absolute text-sm tracking-widest uppercase -translate-x-1/2 whitespace-nowrap left-3/4 top-40"
+			class="absolute text-sm tracking-widest uppercase -translate-x-1/2 whitespace-nowrap left-3/4 top-40 sm:top-48 sm:text-xl"
 		>
 			the house picked
 		</p>

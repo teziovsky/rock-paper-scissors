@@ -30,7 +30,7 @@
 	out:fade={{ duration: 500 }}
 	class={`${
 		colorVariants[color]
-	} absolute shadow-button-outer transition-all duration-200 enabled:hover:rotate-45 enabled:hover:-translate-y-4 enabled:focus:-translate-y-4 enabled:focus-within:rotate-45 enabled:focus-within:-translate-y-6 shadow-dark/50 flex items-center justify-center w-28 h-28 rounded-full after:content-[''] after:w-3/4 after:h-3/4 enabled:focus-within:outline-dashed enabled:focus-within:outline-font enabled:focus-within:outline-offset-4 enabled:focus-within:outline-4 after:absolute after:shadow-button-inner after:shadow-black/10 after:rounded-full after:bg-white after:z-10 after:block before:content-[''] before:w-[200%] before:h-[200%] before:absolute before:rounded-full before:transition-opacity before:-z-10 before:pointer-events-none before:delay-150 before:bg-winner-gradient ${
+	} absolute shadow-button-outer transition-all duration-200 enabled:hover:rotate-45 enabled:hover:-translate-y-4 enabled:focus:-translate-y-4 enabled:focus-within:rotate-45 enabled:focus-within:-translate-y-6 shadow-dark/50 flex items-center justify-center w-28 sm:w-36 h-28 sm:h-36 rounded-full after:content-[''] after:w-3/4 after:h-3/4 enabled:focus-within:outline-dashed enabled:focus-within:outline-font enabled:focus-within:outline-offset-4 enabled:focus-within:outline-4 after:absolute after:shadow-button-inner after:shadow-black/10 after:rounded-full after:bg-white after:z-10 after:block before:content-[''] before:w-[200%] before:h-[200%] before:absolute before:rounded-full before:transition-opacity before:-z-10 before:pointer-events-none before:delay-150 before:bg-winner-gradient ${
 		winner ? 'before:opacity-100' : 'before:opacity-0'
 	} ${className || ''}`}
 	disabled={chosen}
@@ -39,7 +39,7 @@
 >
 	{#if color === 'paper'}
 		<svg
-			class="relative z-20 w-10 h-10"
+			class="relative z-20 w-10 sm:w-14 h-10 sm:h-14"
 			xmlns="http://www.w3.org/2000/svg"
 			width="49"
 			height="59"
@@ -52,7 +52,7 @@
 		</svg>
 	{:else if color === 'scissors'}
 		<svg
-			class="relative z-20 w-10 h-10"
+			class="relative z-20 w-10 sm:w-14 h-10 sm:h-14"
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 51 58"
 			width="51"
@@ -65,7 +65,7 @@
 		</svg>
 	{:else if color === 'rock'}
 		<svg
-			class="relative z-20 w-10 h-10"
+			class="relative z-20 w-10 sm:w-14 h-10 sm:h-14"
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 48 48"
 			width="48"
