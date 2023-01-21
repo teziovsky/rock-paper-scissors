@@ -12,7 +12,9 @@ module.exports = {
 				'rock-gradient': 'radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%))',
 				'lizard-gradient': 'radial-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%))',
 				'cyan-gradient': 'radial-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%))',
-				'radial-gradient': 'radial-gradient(hsl(215, 47%, 22%), hsl(230, 47%, 17%))'
+				'radial-gradient': 'radial-gradient(hsl(215, 47%, 22%), hsl(230, 47%, 17%))',
+				'winner-gradient':
+					'radial-gradient(hsla(180, 100%, 99%, 0.25) 0%, hsla(180, 100%, 99%, 0) 70%)'
 			},
 			backgroundSize: {
 				'200vh': '200vh 200vh'

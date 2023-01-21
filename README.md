@@ -16,8 +16,6 @@ This is a solution to the [Rock, Paper, Scissors challenge on Frontend Mentor](h
     - [Built with](#built-with)
   - [Author](#author)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
@@ -57,7 +55,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/teziovsky/rock-paper-scissors](https://github.com/teziovsky/rock-paper-scissors)
-- Live Site URL: [http://rockpaperscissors.jakubsoboczynski.pl/](http://rockpaperscissors.jakubsoboczynski.pl/)
+- Live Site URL: [https://rockpaperscissors.jakubsoboczynski.pl/](https://rockpaperscissors.jakubsoboczynski.pl/)
 
 ## My process
 
