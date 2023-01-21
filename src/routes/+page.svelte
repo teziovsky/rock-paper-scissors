@@ -65,7 +65,7 @@
 	{/if}
 
 	<!-- Player button paper -->
-	{#if roundStarted === false || playerChosenButton === undefined || playerChosenButton === 'paper' || computerChosenButton === 'paper'}
+	{#if roundStarted === false || playerChosenButton === undefined || playerChosenButton === 'paper'}
 		<Button
 			on:click={handleGameButtonClick}
 			class={`top-6 ${
