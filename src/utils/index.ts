@@ -26,19 +26,19 @@ export function getWinner(player: Options | undefined, computer: Options | undef
 export function fireConfetti() {
 	confetti({
 		angle: 70,
-		spread: 30,
+		spread: 35,
 		shapes: ['square', 'circle', 'star'],
-		startVelocity: 60,
-		particleCount: 50,
-		origin: { y: 1, x: 0 }
+		startVelocity: 100,
+		particleCount: 90,
+		origin: { y: 1, x: 0.1 }
 	});
 
 	confetti({
 		angle: 110,
-		spread: 30,
+		spread: 35,
 		shapes: ['square', 'circle', 'star'],
-		startVelocity: 60,
-		particleCount: 50,
-		origin: { y: 1, x: 1 }
+		startVelocity: 100,
+		particleCount: 90,
+		origin: { y: 1, x: 0.9 }
 	});
 }

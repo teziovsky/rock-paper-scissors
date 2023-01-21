@@ -29,6 +29,7 @@
 	}
 
 	function handleResetButtonClick() {
+		result = undefined;
 		roundStarted = false;
 		playerChosenButton = undefined;
 		computerChosenButton = undefined;
@@ -56,14 +57,15 @@
 	{#if roundStarted === false || playerChosenButton === undefined || playerChosenButton === 'rock'}
 		<Button
 			on:click={handleGameButtonClick}
-			class={`top-6 left-1/4 -translate-x-1/2`}
+			class={`top-6 left-6`}
 			color="rock"
 			chosen={Boolean(playerChosenButton)}
+			winner={Boolean(result === 'player')}
 		/>
 	{/if}
 
 	<!-- Player button paper -->
-	{#if roundStarted === false || playerChosenButton === undefined || playerChosenButton === 'paper' || computerChosenButton === 'paper'}
+	{#if roundStarted === false || playerChosenButton === undefined || playerChosenButton === 'paper'}
 		<Button
 			on:click={handleGameButtonClick}
 			class={`top-6 ${
@@ -71,6 +73,7 @@
 			}`}
 			color="paper"
 			chosen={Boolean(playerChosenButton)}
+			winner={Boolean(result === 'player')}
 		/>
 	{/if}
 
@@ -85,6 +88,7 @@
 			}`}
 			color="scissors"
 			chosen={Boolean(playerChosenButton)}
+			winner={Boolean(result === 'player')}
 		/>
 	{/if}
 
@@ -94,6 +98,7 @@
 			class={`top-6 right-6`}
 			color={computerChosenButton}
 			chosen={Boolean(computerChosenButton)}
+			winner={Boolean(result === 'computer')}
 		/>
 	{/if}
 
