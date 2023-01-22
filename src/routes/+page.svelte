@@ -6,10 +6,10 @@
 	import { fireConfetti, getWinner, randomizeButton } from '$utils';
 
 	let score = 0;
-	let result: 'player' | 'computer' | 'draw' | undefined = 'player';
-	let roundStarted: boolean = true;
-	let playerChosenButton: Options | undefined = 'rock';
-	let computerChosenButton: Options | undefined = 'scissors';
+	let result: 'player' | 'computer' | 'draw' | undefined = undefined;
+	let roundStarted: boolean = false;
+	let playerChosenButton: Options | undefined = undefined;
+	let computerChosenButton: Options | undefined = undefined;
 
 	function handleGameButtonClick(event: CustomEvent) {
 		roundStarted = true;
@@ -37,12 +37,12 @@
 
 <Header {score} />
 
-<div class="relative w-80 sm:w-96 h-80 sm:h-96">
+<div class="relative w-72 h-72 sm:w-80 md:w-full md:max-w-2xl sm:h-80 md:h-96">
 	<!-- Lines behind buttons -->
 	{#if !Boolean(playerChosenButton)}
 		<svg
 			transition:fade={{ duration: 400 }}
-			class="absolute w-48 sm:w-60 h-48 sm:h-60 transition-opacity duration-1000 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+			class="absolute w-48 h-48 transition-opacity duration-1000 -translate-x-1/2 -translate-y-1/2 md:w-60 md:h-60 top-1/2 left-1/2"
 			viewBox="0 0 313 278"
 			width="313"
 			height="278"
@@ -56,7 +56,9 @@
 	{#if roundStarted === false || playerChosenButton === undefined || playerChosenButton === 'rock'}
 		<Button
 			on:click={handleGameButtonClick}
-			class={`top-6 left-6`}
+			class={`top-6 left-6 ${
+				playerChosenButton === 'rock' ? 'md:top-1/2 md:left-0 md:-translate-y-1/2' : 'md:left-36'
+			}`}
 			color="rock"
 			chosen={Boolean(playerChosenButton)}
 			winner={Boolean(result === 'player')}
@@ -68,7 +70,9 @@
 		<Button
 			on:click={handleGameButtonClick}
 			class={`top-6 ${
-				playerChosenButton === 'paper' ? 'right-3/4 translate-x-1/2 duration-500' : 'right-6'
+				playerChosenButton === 'paper'
+					? 'right-3/4 translate-x-1/2 duration-500 md:right-full md:translate-x-full md:top-1/2 md:-translate-y-1/2'
+					: 'right-6 md:right-36'
 			}`}
 			color="paper"
 			chosen={Boolean(playerChosenButton)}
@@ -82,7 +86,7 @@
 			on:click={handleGameButtonClick}
 			class={`-translate-x-1/2 ${
 				playerChosenButton === 'scissors'
-					? 'bottom-[calc(100%-8.5rem)] left-1/4 duration-500'
+					? 'bottom-[calc(100%-8.5rem)] md:left-0 md:bottom-1/2 md:translate-x-0 md:translate-y-1/2 left-1/4 duration-500'
 					: 'bottom-6 left-1/2'
 			}`}
 			color="scissors"
@@ -94,7 +98,9 @@
 	<!-- Computer button -->
 	{#if roundStarted === true && computerChosenButton !== undefined}
 		<Button
-			class={`top-6 right-6`}
+			class={`top-6 right-6 ${
+				Boolean(computerChosenButton) ? 'md:top-1/2 md:-translate-y-1/2 md:right-0' : ''
+			}`}
 			color={computerChosenButton}
 			chosen={Boolean(computerChosenButton)}
 			winner={Boolean(result === 'computer')}
@@ -106,7 +112,7 @@
 		<div
 			in:fade={{ duration: 500, delay: 250 }}
 			out:fade={{ duration: 0, delay: 0 }}
-			class="absolute -translate-x-1/2 rounded-full bg-dark-slate-gray top-[38px] sm:top-[42px] left-3/4 w-[84px] sm:w-[108px] sm:h-[108px] h-[84px]"
+			class="absolute -translate-x-1/2 rounded-full bg-dark-slate-gray top-[38px] md:top-1/2 md:left-[calc(100%-80px)] md:-translate-y-1/2 left-3/4 w-[84px] md:w-[108px] md:h-[108px] h-[84px]"
 		/>
 	{/if}
 
@@ -115,21 +121,21 @@
 		<p
 			in:fade={{ duration: 250, delay: 1000 }}
 			out:fade={{ duration: 100 }}
-			class="absolute text-sm tracking-widest uppercase -translate-x-1/2 whitespace-nowrap sm:text-xl top-40 sm:top-48 left-1/4"
+			class="absolute text-sm tracking-widest uppercase -translate-x-1/2 whitespace-nowrap md:text-xl md:left-8 md:translate-x-0 top-40 md:top-80 left-1/4"
 		>
 			you picked
 		</p>
 		<p
 			in:fade={{ duration: 250, delay: 1000 }}
 			out:fade={{ duration: 100 }}
-			class="absolute text-sm tracking-widest uppercase -translate-x-1/2 whitespace-nowrap left-3/4 top-40 sm:top-48 sm:text-xl"
+			class="absolute text-sm tracking-widest uppercase -translate-x-1/2 whitespace-nowrap left-[74%] md:translate-x-0 top-40 md:top-80 md:text-xl"
 		>
 			the house picked
 		</p>
 	{/if}
 </div>
 
-<div class="flex min-h-[128px] flex-col gap-4">
+<div class="md:absolute flex min-h-[128px] md:top-[47%] md:-translate-y-1/2 flex-col gap-4">
 	{#if Boolean(playerChosenButton) && Boolean(computerChosenButton) && Boolean(result)}
 		<h2 class="text-6xl text-center text-white uppercase">
 			{#if result === 'player'}
@@ -150,7 +156,7 @@
 </div>
 
 <button
-	class="absolute left-1/2 -translate-x-1/2 bottom-10 px-10 py-1 text-lg tracking-widest uppercase bg-transparent border-[3px] rounded-lg border-header-outline text-font enabled:focus:outline-dashed enabled:focus:outline-font enabled:focus:outline-offset-4 enabled:focus:outline-[3px]"
+	class="absolute left-1/2 -translate-x-1/2 bottom-10 px-10 py-1 text-lg tracking-widest uppercase bg-transparent border-[3px] rounded-lg border-header-outline text-font enabled:focus:outline-dashed enabled:focus:outline-font enabled:focus:outline-offset-4 enabled:focus:outline-[3px] enabled:hover:rotate-2 enabled:hover:scale-110 enabled:focus:rotate-2 enabled:focus:scale-110 transition-transform"
 >
 	rules
 </button>
