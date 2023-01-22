@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { fade } from 'svelte/transition';
+	import { fade, draw } from 'svelte/transition';
 	import Button from '$components/Button.svelte';
 	import Header from '$components/Header.svelte';
+	import Rules from '$components/Rules.svelte';
 	import type { Options } from '$types';
 	import { fireConfetti, getWinner, randomizeButton } from '$utils';
 
@@ -10,6 +11,8 @@
 	let roundStarted: boolean = false;
 	let playerChosenButton: Options | undefined = undefined;
 	let computerChosenButton: Options | undefined = undefined;
+
+	let showRules: boolean = false;
 
 	function handleGameButtonClick(event: CustomEvent) {
 		roundStarted = true;
@@ -32,6 +35,14 @@
 		roundStarted = false;
 		playerChosenButton = undefined;
 		computerChosenButton = undefined;
+	}
+
+	function handleRulesButtonClick() {
+		showRules = !showRules;
+	}
+
+	function handleRulesCloseClick() {
+		showRules = false;
 	}
 </script>
 
@@ -147,7 +158,7 @@
 			{/if}
 		</h2>
 		<button
-			class="px-10 py-3 tracking-widest uppercase rounded-lg text-xl bg-font text-dark enabled:focus:outline-dashed enabled:focus:outline-font enabled:focus:outline-offset-4 enabled:focus:outline-[3px] enabled:hover:-rotate-2 enabled:hover:scale-110 enabled:focus:-rotate-2 enabled:focus:scale-110 transition-transform"
+			class="px-10 py-3 tracking-widest uppercase rounded-lg text-xl bg-font text-dark enabled:focus-within:outline-dashed enabled:focus-within:outline-font enabled:focus-within:outline-offset-4 enabled:focus-within:outline-[3px] enabled:hover:-rotate-2 enabled:hover:scale-110 enabled:focus-within:-rotate-2 enabled:focus-within:scale-110 transition-transform"
 			on:click={() => handleResetButtonClick()}
 		>
 			play again
@@ -156,7 +167,10 @@
 </div>
 
 <button
-	class="absolute left-1/2 -translate-x-1/2 bottom-10 px-10 py-1 text-lg tracking-widest uppercase bg-transparent border-[3px] rounded-lg border-header-outline text-font enabled:focus:outline-dashed enabled:focus:outline-font enabled:focus:outline-offset-4 enabled:focus:outline-[3px] enabled:hover:rotate-2 enabled:hover:scale-110 enabled:focus:rotate-2 enabled:focus:scale-110 transition-transform"
+	class="absolute left-1/2 -translate-x-1/2 bottom-10 px-10 py-1 text-lg tracking-widest uppercase bg-transparent border-[3px] rounded-lg border-header-outline text-font enabled:focus-within:outline-dashed enabled:focus-within:outline-font enabled:focus-within:outline-offset-4 enabled:focus-within:outline-[3px] enabled:hover:rotate-2 enabled:hover:scale-110 enabled:focus-within:rotate-2 enabled:focus-within:scale-110 transition-transform"
+	on:click={() => handleRulesButtonClick()}
 >
 	rules
 </button>
+
+<Rules on:close={handleRulesCloseClick} {showRules} />
