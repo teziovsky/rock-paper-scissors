@@ -39,7 +39,9 @@
 >
 	{#if color === 'paper'}
 		<svg
-			class="relative z-20 w-10 h-10 md:w-12 md:h-12"
+			class={`relative z-20 w-10 h-10 transition-all ${
+				chosen ? 'md:w-16 md:h-16' : 'md:w-12 md:h-12'
+			}`}
 			xmlns="http://www.w3.org/2000/svg"
 			width="49"
 			height="59"
@@ -52,7 +54,9 @@
 		</svg>
 	{:else if color === 'scissors'}
 		<svg
-			class="relative z-20 w-10 h-10 md:w-12 md:h-12"
+			class={`relative z-20 w-10 h-10 transition-all ${
+				chosen ? 'md:w-16 md:h-16' : 'md:w-12 md:h-12'
+			}`}
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 51 58"
 			width="51"
@@ -65,7 +69,9 @@
 		</svg>
 	{:else if color === 'rock'}
 		<svg
-			class="relative z-20 w-10 h-10 md:w-12 md:h-12"
+			class={`relative z-20 w-10 h-10 transition-all ${
+				chosen ? 'md:w-16 md:h-16' : 'md:w-12 md:h-12'
+			}`}
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 48 48"
 			width="48"
