@@ -4,7 +4,7 @@
 
 	const dispatch = createEventDispatcher();
 
-	export let showRules: boolean = false;
+	export let showRules = false;
 
 	function close() {
 		dispatch('close', {
@@ -22,7 +22,7 @@
 
 		// Focus trap
 		if (showRules && e.key === 'Tab') {
-			const nodes = modal.querySelectorAll('*') as NodeListOf<HTMLElement>;
+			const nodes = modal.querySelectorAll<HTMLElement>('*');
 			const tabbable = Array.from(nodes).filter((n) => n.tabIndex >= 0);
 
 			const activeElement = document.activeElement as HTMLElement;
