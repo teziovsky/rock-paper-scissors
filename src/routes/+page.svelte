@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { fade, draw } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 	import Button from '$components/Button.svelte';
 	import Header from '$components/Header.svelte';
 	import Rules from '$components/Rules.svelte';
@@ -8,11 +8,11 @@
 
 	let score = 0;
 	let result: 'player' | 'computer' | 'draw' | undefined = undefined;
-	let roundStarted: boolean = false;
+	let roundStarted = false;
 	let playerChosenButton: Options | undefined = undefined;
 	let computerChosenButton: Options | undefined = undefined;
 
-	let showRules: boolean = false;
+	let showRules = false;
 
 	function handleGameButtonClick(event: CustomEvent) {
 		roundStarted = true;
@@ -50,7 +50,7 @@
 
 <div class="relative w-72 h-72 sm:w-80 md:w-full md:max-w-2xl sm:h-80 md:h-96">
 	<!-- Lines behind buttons -->
-	{#if !Boolean(playerChosenButton)}
+	{#if !playerChosenButton}
 		<svg
 			transition:fade={{ duration: 400 }}
 			class="absolute w-48 h-48 transition-opacity duration-1000 -translate-x-1/2 -translate-y-1/2 md:w-60 md:h-60 top-1/2 left-1/2"
@@ -110,7 +110,7 @@
 	{#if roundStarted === true && computerChosenButton !== undefined}
 		<Button
 			class={`top-6 right-6 ${
-				Boolean(computerChosenButton) ? 'md:top-1/2 md:-translate-y-1/2 md:right-0' : ''
+				computerChosenButton ? 'md:top-1/2 md:-translate-y-1/2 md:right-0' : ''
 			}`}
 			color={computerChosenButton}
 			chosen={Boolean(computerChosenButton)}
@@ -119,7 +119,7 @@
 	{/if}
 
 	<!-- Placeholder for the button that will be chosen by the computer -->
-	{#if Boolean(roundStarted) && !Boolean(computerChosenButton)}
+	{#if Boolean(roundStarted) && !computerChosenButton}
 		<div
 			in:fade={{ duration: 500, delay: 250 }}
 			out:fade={{ duration: 0, delay: 0 }}

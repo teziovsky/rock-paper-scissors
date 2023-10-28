@@ -6,8 +6,8 @@
 	const dispatch = createEventDispatcher();
 
 	export let color: Options;
-	export let chosen: boolean = false;
-	export let winner: boolean = false;
+	export let chosen = false;
+	export let winner = false;
 
 	export let className: string | undefined;
 	export { className as class };
