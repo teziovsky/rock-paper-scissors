@@ -53,7 +53,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/teziovsky/rock-paper-scissors](https://github.com/teziovsky/rock-paper-scissors)
-- Live Site URL: [https://rockpaperscissors.jakubsoboczynski.pl/](https://rockpaperscissors.jakubsoboczynski.pl/)
+- Live Site URL: [https://rock-paper-scissors.jakubsoboczynski.pl/](https://rock-paper-scissors.jakubsoboczynski.pl/)
 
 ## My process
 
@@ -70,3 +70,4 @@ Users should be able to:
 - Website - [Jakub Soboczyński](https://www.jakubsoboczynski.pl/)
 - Frontend Mentor - [@teziovsky](https://www.frontendmentor.io/profile/teziovsky)
 - Twitter - [@teziovsky](https://twitter.com/teziovsky)
+- Github - [teziovsky](https://github.com/teziovsky/)
