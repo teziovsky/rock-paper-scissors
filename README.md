@@ -53,7 +53,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/teziovsky/rock-paper-scissors](https://github.com/teziovsky/rock-paper-scissors)
-- Live Site URL: [https://rock-paper-scissors.jakubsoboczynski.pl/](https://rock-paper-scissors.jakubsoboczynski.pl/)
+- Live Site URL: [https://rock-paper-scissors-psi-ruby.vercel.app/](https://rock-paper-scissors-psi-ruby.vercel.app/)
 
 ## My process
 
